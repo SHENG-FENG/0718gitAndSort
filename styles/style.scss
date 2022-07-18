@@ -1,0 +1,73 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+form {
+  text-align: center;
+  margin-top: 2rem;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .todo {
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    margin: 0.2rem 0.25rem;
+    flex-wrap: wrap;
+    transition: all 0.5s ease-in-out;
+    p {
+      background-color: white;
+      color: black;
+      padding: 0.25rem 0.5rem;
+      font-size: 1.75rem;
+    }
+    .todo-text {
+      width: 50%;
+    }
+    .todo-time {
+      width: 20%;
+      text-align: center;
+    }
+    button {
+      padding: 0.25rem 0.5rem;
+      font-size: 1.75rem;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+    .complete {
+      background-color: green;
+    }
+    .trashCan {
+      background-color: red;
+    }
+  }
+}
+//新增按鈕跟圖案時，把圖片取消，可以點到整個按鍵
+i {
+  pointer-events: none;
+}
+
+.desh {
+  text-decoration: line-through;
+  text-decoration-line: 0.2rem;
+  opacity: 0.5;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}

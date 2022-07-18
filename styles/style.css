@@ -1,1 +1,89 @@
-/*# sourceMappingURL=style.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+form {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section .todo {
+  width: 30vw;
+  display: flex;
+  align-items: center;
+  margin: 0.2rem 0.25rem;
+  flex-wrap: wrap;
+  transition: all 0.5s ease-in-out;
+}
+section .todo p {
+  background-color: white;
+  color: black;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.75rem;
+}
+section .todo .todo-text {
+  width: 50%;
+}
+section .todo .todo-time {
+  width: 20%;
+  text-align: center;
+}
+section .todo button {
+  padding: 0.25rem 0.5rem;
+  font-size: 1.75rem;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+section .todo .complete {
+  background-color: green;
+}
+section .todo .trashCan {
+  background-color: red;
+}
+
+i {
+  pointer-events: none;
+}
+
+.desh {
+  text-decoration: line-through;
+  -webkit-text-decoration-line: 0.2rem;
+          text-decoration-line: 0.2rem;
+  opacity: 0.5;
+}
+
+@-webkit-keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}
+@keyframes scaleDown {
+  to {
+    transform: scale(0);
+  }
+}/*# sourceMappingURL=style.css.map */

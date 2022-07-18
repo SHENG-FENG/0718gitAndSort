@@ -5,17 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <div>
+    <form>
       <input class="inputText" type="text" placeholder="事件" />
-      <input class="inputMonth" type="number" placeholder="月" />
-      <input class="inputDay" type="number" placeholder="日" />
-      <button>提交</button>
+      <input
+        class="inputMonth"
+        type="number"
+        placeholder="月"
+        min="1"
+        max="12"
+      />
+      <input class="inputDay" type="number" placeholder="日" min="1" max="31" />
+      <button type="submit">提交</button>
+    </form>
+    <div class="sort">
+      <button>Sort By me</button>
     </div>
-    <div>
-      <section class="sort"></section>
-    </div>
+    <section></section>
+    <!-- #region 
+    <input id="text" type="text" placeholder="Enter your name…" />
+    <button id="submit">Submit</button>-->
   </body>
   <script src="app.js"></script>
 </html>
