@@ -54,10 +54,19 @@ button.addEventListener("click", (e) => {
     todo.classList.toggle("desh");
   });
   //add remove to delete
-  trashCan.addEventListener("click", () => {
+  trashCan.addEventListener("click", (e) => {
+    let todoItem = e.target.parentElement;
     //啟動縮小的style，並移除
     todo.addEventListener("animationend", () => {
-      todo.remove();
+      let text = todoItem.children[0].innerText;
+      let myListArray = JSON.parse(localStorage.getItem("list"));
+      myListArray.forEach((item, index) => {
+        if (item.todoText == text) {
+          myListArray.splice(index, 1);
+          localStorage.setItem("list", JSON.stringify(myListArray));
+        }
+      });
+      todoItem.remove();
     });
     //增加縮小的style
     todo.style.animation = "scaleDown 0.3s forwards";
@@ -80,11 +89,65 @@ button.addEventListener("click", (e) => {
     localStorage.setItem("list", JSON.stringify(myListArray));
   }
 
-  console.log(JSON.parse(localStorage.setItem("list")));
+  console.log(JSON.parse(localStorage.getItem("list")));
 
   //跑完整個事件後最後input[type =text]的格子變回空格
   inputText.value = "";
 });
+//delete localstroage and lord data
+let myList = localStorage.getItem("list");
+if (myList !== null) {
+  let myListArray = JSON.parse(myList);
+  myListArray.forEach((item) => {
+    //create a todo
+    let todo = document.createElement("div");
+    todo.classList.add("todo");
+    let text = document.createElement("p");
+    text.classList.add("todo-text");
+    text.innerHTML = item.todoText;
+    let time = document.createElement("p");
+    time.classList.add("todo-time");
+    time.innerText = item.todoMonth + "/" + item.todoDay;
+    todo.appendChild(text);
+    todo.appendChild(time);
+
+    //create trashcan and delete
+    let completeButton = document.createElement("button");
+    completeButton.innerHTML = "<i class='bx bx-check'></i>";
+    completeButton.classList.add("complete");
+
+    //add complete style
+    completeButton.addEventListener("click", () => {
+      todo.classList.toggle("desh");
+    });
+    let trashCan = document.createElement("button");
+    trashCan.innerHTML = "<i class='bx bx-trash'></i>";
+    trashCan.classList.add("trashCan");
+
+    //add remove to delete
+    trashCan.addEventListener("click", (e) => {
+      let todoItem = e.target.parentElement;
+      //啟動縮小的style，並移除
+      todo.addEventListener("animationend", () => {
+        let text = todoItem.children[0].innerText;
+        let myListArray = JSON.parse(localStorage.getItem("list"));
+        myListArray.forEach((item, index) => {
+          if (item.todoText == text) {
+            myListArray.splice(index, 1);
+            localStorage.setItem("list", JSON.stringify(myListArray));
+          }
+        });
+        todoItem.remove();
+      });
+      //增加縮小的style
+      todo.style.animation = "scaleDown 0.3s forwards";
+    });
+    todo.appendChild(completeButton);
+    todo.appendChild(trashCan);
+
+    section.appendChild(todo);
+  });
+}
 //按下enter即可送出
 // let text = document.querySelector("#text");
 // let submit = document.querySelector("#submit");

@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: url("/pexels-ethan-brooke-12641743.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 form {
   text-align: center;
   margin-top: 2rem;
@@ -58,6 +65,21 @@ i {
   -webkit-text-decoration-line: 0.2rem;
           text-decoration-line: 0.2rem;
   opacity: 0.5;
+}
+
+.sort {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0rem;
+}
+.sort button {
+  cursor: pointer;
+  background-color: rgb(0, 146, 114);
+  color: white;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 1.75rem;
 }
 
 @-webkit-keyframes scaleUp {
